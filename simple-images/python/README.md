@@ -1,2 +1,2 @@
 
-Basic Python image using.
+Basic Python image using Jupyter Lab.
