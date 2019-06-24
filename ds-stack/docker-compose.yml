@@ -1,0 +1,39 @@
+version: '3'
+services:
+  rstudio:
+    image: ds/rstudio
+    hostname: rstudio 
+    volumes:
+      - /etc:/opt/etc:ro
+      - home:/home
+    networks:
+      - analysis
+    ports:
+      - 8787:8787
+  jupyter:
+    environment:
+      - USER
+    image: ds/jupyterhub
+    hostname: jupyterhub
+    volumes:
+      - /etc:/opt/etc:ro
+      - home:/home
+    networks:
+      - analysis
+    ports:
+      - 8000:8000
+  shiny:
+    image: ds/shiny
+    hostname: shiny
+    volumes:
+     - apps:/srv/shiny-server/
+     - logs:/var/log/shiny-server/
+    networks:
+      - analysis
+volumes:
+  home:
+  apps:
+  logs:
+networks:
+  analysis:
+    external: true
