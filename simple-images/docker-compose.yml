@@ -1,0 +1,22 @@
+version: '2'
+services:
+  py27:
+    image: py3-image
+    build: ./python
+    hostname: py3-ds
+    container_name: py3-ds
+    ports:
+      - 8888:8888
+    volumes:
+      - /home/$USER/container-share:/host-share
+    environment:
+      - SHELL=/bin/bash
+  rstudio:
+    image: r-image
+    build: ./r 
+    hostname: r-ds
+    container_name: r-ds
+    ports:
+      - 8787:8787
+    volumes:
+      - /home/$USER/container-share:/host-share
