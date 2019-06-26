@@ -9,7 +9,7 @@ To build the images run:
 
 To deploy the stack run:
 ```bash
-docker stack -c docker-compose.yml ds
+docker stack deploy -c docker-compose.yml ds
 ```
 
 Then you can access JupyterHub at 127.0.0.1:8000 and RStudio at 127.0.0.1:8787.
