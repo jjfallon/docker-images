@@ -1,2 +1,2 @@
 #!/bin/bash
-docker rm ds
+docker stack rm ds
